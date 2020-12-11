@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     //DATOS
     string nombre;
@@ -43,33 +44,29 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MOVIMIENTO LATERAL
-        if(joystick.Horizontal >= .2f)
+        if (isLocalPlayer)
         {
-            horizontalMove = -runSpeed;
-        }
-        else if (joystick.Horizontal <= -.2f)
-        {
-            horizontalMove = runSpeed;
-        }
-        else
-        {
-            horizontalMove = 0;
-        }
-        transform.position = new Vector2(transform.position.x - horizontalMove * Time.deltaTime, transform.position.y); //Mover
+            //MOVIMIENTO LATERAL
+            if(joystick.Horizontal >= .2f)
+            {
+                horizontalMove = -runSpeed;
+            }
+            else if (joystick.Horizontal <= -.2f)
+            {
+                horizontalMove = runSpeed;
+            }
+            else
+            {
+                horizontalMove = 0;
+            }
+            transform.position = new Vector2(transform.position.x - horizontalMove * Time.deltaTime, transform.position.y); //Mover
 
-        //SALTO
-        if (joystick.Vertical >= .5f && isJumping == false)
-        {
-            rb.velocity = new Vector3(0, 20, 0);
-            isJumping = true;
-        }
-
-        //SET JOYSTICK DIRECTION
-        if(joystick.Horizontal != 0f || joystick.Vertical != 0f)
-        {
-            Data.setJoyX(joystick.Horizontal);
-            Data.setJoyY(joystick.Vertical);
+            //SALTO
+            if (joystick.Vertical >= .5f && isJumping == false)
+            {
+                rb.velocity = new Vector3(0, 20, 0);
+                isJumping = true;
+            }
         }
     }
 

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5757445116449166788}
   - component: {fileID: 5757445116449166789}
   - component: {fileID: 3784835088978959827}
-  - component: {fileID: 2478759507188263851}
+  - component: {fileID: 2929478866539311976}
+  - component: {fileID: 7345071196831515769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -144,9 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2733449f42159a44b6e6c8578fb0e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   runSpeed: 5
   bullet: {fileID: 77343367133026149, guid: 31d93ed6b78d8d041910ba4e877f4bb8, type: 3}
---- !u!114 &2478759507188263851
+--- !u!114 &2929478866539311976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,27 +158,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 5757445116449166790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &7345071196831515769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757445116449166790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
